@@ -25,16 +25,13 @@
   <main>
     <h2>Lista de Tarefas Diárias</h2>
 
-    <ul>
-        <li>
-            <input type="checkbox" id="tarefa1" checked><label for="tarefa1">Acordar</label>
-        </li>
-        <li>
-            <input type="checkbox" id="tarefa2"><label for="tarefa2">Chegar lvl 100 no Fortnite</label>
-        </li>
-        <li>
-            <input type="checkbox" id="tarefa3"><label for="tarefa3">Dormir</label>
-        </li>
+    <div class="input-group">
+        <input type="text" id="novaTarefa" placeholder="Digite uma nova tarefa...">
+        <button onclick="adicionarTarefa()">Adicionar</button>
+    </div>
+
+    <ul id="lista">
+        <li onclick="marcarConcluida(this)">Chegar lvl100 no fortnite</li>
     </ul>
   </main>
 
@@ -55,5 +52,6 @@
     </div>
 
 </header>
+    <script src="script.js"></script>
 </body>
 </html>
