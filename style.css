@@ -1,56 +1,78 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
+    font-family: "MS Sans Serif", Geneva, Arial, sans-serif;
+    background-color: #D4D0C8;
     padding: 20px;
-    display: flex;
-    justify-content: center;
+    text-align: center; 
 }
 
 .container {
-    background: white;
+    background: #FFFFFF;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    width: 100%;
-    max-width: 400px;
+    width: 400px; 
+    margin: 0 auto; 
+    text-align: left;
+    border-top: 2px solid #FFF;
+    border-left: 2px solid #FFF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
 }
 
-h2 { text-align: center; color: #333; }
+h2 { 
+    text-align: center; 
+    color: #000080; 
+    font-size: 16pt;
+}
 
-.input-group { display: flex; margin-bottom: 20px; }
+.input-group { 
+    margin-bottom: 20px; 
+    width: 100%; 
+}
 
-input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
-    outline: none;
+.campo-texto {
+    width: 250px;
+    padding: 4px;
+    font-size: 10pt;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+    background-color: #FFF;
 }
 
 button {
-    padding: 10px 15px;
-    border: none;
-    background-color: #28a745;
-    color: white;
-    cursor: pointer;
-    border-radius: 0 4px 4px 0;
+    padding: 4px 10px;
+    font-size: 10pt;
+    font-weight: bold;
+    background-color: #D4D0C8;
+    color: #000000;
+    cursor: hand; 
+    border-top: 2px solid #FFF;
+    border-left: 2px solid #FFF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
 }
 
-button:hover { background-color: #218838; }
+button:active { 
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+}
 
-ul { list-style: none; padding: 0; }
+ul { 
+    list-style-type: square; 
+    padding-left: 20px; 
+    margin: 0;
+}
 
 li {
-    padding: 10px;
-    background: #f9f9f9;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+    padding: 5px 0;
+    background: #FFFFFF;
+    font-size: 10pt;
 }
 
 .concluida {
     text-decoration: line-through;
-    color: #888;
-    background: #e2e2e2;
+    color: #808080;
+    font-style: italic;
 }
