@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+    <div id="loading" class="loading-container">
+        <div class="spinner"></div>
+        <p>Adicionando tarefa...</p>
+    </div>
+
     <header class="main-header">
         <div class="container">
             <div class="logo">
@@ -21,37 +27,36 @@
                 </ul>
             </nav>
         </div>
+    </header> <main>
+        <h2>Lista de Tarefas Diárias</h2>
 
-  <main>
-    <h2>Lista de Tarefas Diárias</h2>
-
-    <div class="input-group">
-        <input type="text" id="novaTarefa" placeholder="Digite uma nova tarefa...">
-        <button onclick="adicionarTarefa()">Adicionar</button>
-    </div>
-
-    <ul id="lista">
-        <li onclick="marcarConcluida(this)">Chegar lvl100 no fortnite</li>
-    </ul>
-  </main>
-
-  <footer class="main-footer">
-    <div class="container">
-        <div class="footer-content">
-            <div class="footer-info">
-                <p> 2026 Gitflow. Sem os direitos.</p>
-            </div>
-            <nav class="footer-nav">
-                <ul>
-                    <li><a href="#">Privacidade</a></li>
-                    <li><a href="#">Termos de Uso</a></li>
-                    <li><a href="#">Contato</a></li>
-                </ul>
-            </nav>
+        <div class="input-group">
+            <input type="text" id="novaTarefa" placeholder="Digite uma nova tarefa...">
+            <button onclick="adicionarTarefa()">Adicionar</button>
         </div>
-    </div>
 
-</header>
+        <ul id="lista">
+            <li onclick="marcarConcluida(this)">Chegar lvl100 no fortnite</li>
+        </ul>
+    </main>
+
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p> 2026 Gitflow. Sem os direitos.</p>
+                </div>
+                <nav class="footer-nav">
+                    <ul>
+                        <li><a href="#">Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
