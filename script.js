@@ -30,7 +30,35 @@ window.addEventListener('DOMContentLoaded', () => {
 
     lista.parentNode.insertBefore(filtroContainer, lista);
     lista.dataset.filtroAtual = 'todas';
+
+    carregarTarefasSalvas();
 });
+
+function obterTarefasDoStorage() {
+    const dados = localStorage.getItem('tarefas');
+    return JSON.parse(dados || '[]');
+}
+
+function carregarTarefasSalvas() {
+    const lista = document.getElementById('lista');
+    lista.innerHTML = "";
+
+    const tarefas = obterTarefasDoStorage();
+
+    tarefas.forEach(tarefa => {
+        const novoItem = document.createElement('li');
+        novoItem.textContent = tarefa.texto;
+        
+        if (tarefa.concluida) {
+            novoItem.classList.add('concluida');
+            novoItem.style.textDecoration = 'line-through';
+            novoItem.style.opacity = '0.6';
+        }
+
+        novoItem.onclick = function() { marcarConcluida(this); };
+        lista.appendChild(novoItem);
+    });
+}
 
 function adicionarTarefa() {
     const input = document.getElementById('novaTarefa');
@@ -48,6 +76,11 @@ function adicionarTarefa() {
             novoItem.onclick = function() { marcarConcluida(this); };
 
             lista.appendChild(novoItem);
+            
+            const tarefasAtuais = obterTarefasDoStorage();
+            tarefasAtuais.push({ texto: textoTarefa, concluida: false });
+            localStorage.setItem('tarefas', JSON.stringify(tarefasAtuais));
+
             input.value = "";
 
             if (loading) loading.style.display = "none";
@@ -66,12 +99,24 @@ function adicionarTarefa() {
 function marcarConcluida(elemento) {
     elemento.classList.toggle('concluida');
     
+    let estaConcluida = false;
+
     if (elemento.classList.contains('concluida')) {
         elemento.style.textDecoration = 'line-through';
         elemento.style.opacity = '0.6';
+        estaConcluida = true;
     } else {
         elemento.style.textDecoration = 'none';
         elemento.style.opacity = '1';
+    }
+
+    const tarefasAtuais = obterTarefasDoStorage();
+    const textoElemento = elemento.textContent;
+    
+    const tarefaModificada = tarefasAtuais.find(t => t.texto === textoElemento);
+    if (tarefaModificada) {
+        tarefaModificada.concluida = estaConcluida;
+        localStorage.setItem('tarefas', JSON.stringify(tarefasAtuais));
     }
 
     const lista = document.getElementById('lista');
