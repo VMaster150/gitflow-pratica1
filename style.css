@@ -8,6 +8,10 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 90vh;
+    font-family: "MS Sans Serif", Geneva, Arial, sans-serif;
+    background-color: #D4D0C8;
+    padding: 20px;
+    text-align: center; 
 }
 
 /* Container Principal Estilo Interface de Nave */
@@ -78,4 +82,73 @@ button {
 }
 
 button:hover {
-    background-
+    background: #FFFFFF;
+    padding: 20px;
+    width: 400px; 
+    margin: 0 auto; 
+    text-align: left;
+    border-top: 2px solid #FFF;
+    border-left: 2px solid #FFF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+}
+
+h2 { 
+    text-align: center; 
+    color: #000080; 
+    font-size: 16pt;
+}
+
+.input-group { 
+    margin-bottom: 20px; 
+    width: 100%; 
+}
+
+.campo-texto {
+    width: 250px;
+    padding: 4px;
+    font-size: 10pt;
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+    background-color: #FFF;
+}
+
+button {
+    padding: 4px 10px;
+    font-size: 10pt;
+    font-weight: bold;
+    background-color: #D4D0C8;
+    color: #000000;
+    cursor: hand; 
+    border-top: 2px solid #FFF;
+    border-left: 2px solid #FFF;
+    border-right: 2px solid #808080;
+    border-bottom: 2px solid #808080;
+}
+
+button:active { 
+    border-top: 2px solid #808080;
+    border-left: 2px solid #808080;
+    border-right: 2px solid #FFF;
+    border-bottom: 2px solid #FFF;
+}
+
+ul { 
+    list-style-type: square; 
+    padding-left: 20px; 
+    margin: 0;
+}
+
+li {
+    padding: 5px 0;
+    background: #FFFFFF;
+    font-size: 10pt;
+}
+
+.concluida {
+    text-decoration: line-through;
+    color: #808080;
+    font-style: italic;
+}
