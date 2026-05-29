@@ -1,3 +1,33 @@
+/* ==========================================================================
+   VARIÁVEIS DE CORES (O segredo do Light/Dark Mode)
+   ========================================================================== */
+:root {
+    /* MODO CLARO (Padrão) */
+    --fundo-corpo: #f0f2f5;
+    --fundo-card: #ffffff;
+    --texto-principal: #1a1a1a;
+    --texto-secundario: #4b5563;
+    --borda: #d1d5db;
+    --cor-destaque: #007bff;
+    --texto-destaque: #ffffff;
+    --fundo-item: #f9fafb;
+}
+
+.dark-mode {
+    /* MODO ESCURO */
+    --fundo-corpo: #0d1117;
+    --fundo-card: #161b22;
+    --texto-principal: #c9d1d9;
+    --texto-secundario: #8b949e;
+    --borda: #30363d;
+    --cor-destaque: #00e5ff;
+    --texto-destaque: #0d1117;
+    --fundo-item: #21262d;
+}
+
+/* ==========================================================================
+   ESTILOS GERAIS
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -6,13 +36,14 @@
 
 body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    background-color: #0d1117;
-    color: #c9d1d9;
+    background-color: var(--fundo-corpo);
+    color: var(--texto-principal);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .main-header, main, .main-footer {
@@ -21,54 +52,62 @@ body {
     margin-bottom: 20px;
 }
 
-.main-header .container {
+/* Cabeçalho */
+.container-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 0;
-    border-bottom: 1px solid #30363d;
+    border-bottom: 1px solid var(--borda);
 }
 
 .logo a {
-    color: #00e5ff;
+    color: var(--cor-destaque);
     text-decoration: none;
     font-weight: bold;
     letter-spacing: 2px;
-    text-shadow: 0 0 10px rgba(0, 229, 255, 0.3);
 }
 
 .nav-menu ul {
     display: flex;
     gap: 15px;
     list-style: none;
-    padding: 0;
+    align-items: center;
 }
 
 .nav-menu a {
-    color: #8b949e;
+    color: var(--texto-secundario);
     text-decoration: none;
     font-size: 0.9rem;
-    transition: color 0.2s ease;
 }
 
-.nav-menu a:hover {
-    color: #00e5ff;
+/* Botão de Tema */
+.btn-tema {
+    background-color: var(--fundo-item);
+    color: var(--texto-principal);
+    border: 1px solid var(--borda);
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: bold;
 }
 
+/* ==========================================================================
+   CARD PRINCIPAL E INPUTS
+   ========================================================================== */
 main {
-    background: #161b22;
+    background: var(--fundo-card);
     padding: 30px;
     border-radius: 12px;
-    border: 1px solid #30363d;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--borda);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 h2 {
     text-align: center;
-    color: #00e5ff;
+    color: var(--cor-destaque);
     font-size: 1.5rem;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     margin-bottom: 25px;
 }
 
@@ -81,132 +120,92 @@ h2 {
 input[type="text"] {
     flex: 1;
     padding: 12px;
-    background-color: #0d1117;
-    border: 1px solid #30363d;
+    background-color: var(--fundo-corpo);
+    border: 1px solid var(--borda);
     border-radius: 6px;
-    color: #58a6ff; 
-    font-weight: bold;
+    color: var(--texto-principal);
     outline: none;
-    transition: all 0.3s ease;
-}
-
-input[type="text"]:focus {
-    border-color: #00e5ff;
-    box-shadow: 0 0 8px rgba(0, 229, 255, 0.3);
-}
-
-input[type="text"]::placeholder {
-    color: #484f58;
 }
 
 main button {
     padding: 12px 20px;
-    border: 1px solid #00e5ff;
-    background-color: rgba(0, 229, 255, 0.05);
-    color: #00e5ff;
+    border: 1px solid var(--cor-destaque);
+    background-color: var(--cor-destaque);
+    color: var(--texto-destaque);
     font-weight: bold;
-    text-transform: uppercase;
     cursor: pointer;
     border-radius: 6px;
-    transition: all 0.3s ease;
+    transition: opacity 0.2s;
 }
 
 main button:hover {
-    background-color: #00e5ff;
-    color: #0d1117;
-    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+    opacity: 0.9;
 }
 
+/* Botões de Filtro Criados pelo JS */
 .btn-filtro {
     font-family: inherit;
-    font-size: 0.85rem;
     font-weight: bold;
-    transition: all 0.2s ease !important;
+    border-radius: 4px;
 }
 
-#lista { 
-    list-style-type: none; 
+/* Lista */
+#lista {
+    list-style: none;
     padding: 0;
     margin-top: 15px;
 }
 
 #lista li {
     padding: 14px;
-    background: #21262d;
-    border: 1px solid #30363d;
+    background: var(--fundo-item);
+    border: 1px solid var(--borda);
     border-radius: 6px;
     margin-bottom: 8px;
     cursor: pointer;
-    font-size: 1rem;
-    transition: all 0.2s ease;
-    text-align: left; 
-}
-
-#lista li:hover {
-    border-color: #58a6ff;
-    background: #282e38;
+    text-align: left;
 }
 
 .concluida {
     text-decoration: line-through;
-    color: #8b949e !important;
+    color: var(--texto-secundario) !important;
     opacity: 0.5;
 }
 
-.main-footer {
-    border-top: 1px solid #30363d;
-    padding-top: 15px;
-    font-size: 0.8rem;
-    color: #484f58;
-}
-
+/* Footer */
 .footer-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    border-top: 1px solid var(--borda);
+    padding-top: 15px;
+    font-size: 0.8rem;
+    color: var(--texto-secundario);
 }
+.footer-nav ul { display: flex; gap: 10px; list-style: none; }
+.footer-nav a { color: var(--texto-secundario); text-decoration: none; }
 
-.footer-nav ul {
-    display: flex;
-    gap: 12px;
-    list-style: none;
-    padding: 0;
-}
-
-.footer-nav a {
-    color: #484f58;
-    text-decoration: none;
-}
-
-.footer-nav a:hover {
-    color: #8b949e;
-}
-
+/* ==========================================================================
+   LOADING
+   ========================================================================== */
 .loading-container {
-    display: none; 
+    display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background-color: rgba(13, 17, 23, 0.85); 
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7);
     z-index: 9999;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: #00e5ff;
-    font-family: inherit;
+    color: white;
 }
 
 .spinner {
-    width: 50px;
-    height: 50px;
-    border: 4px solid #161b22;
-    border-top: 4px solid #00e5ff; 
+    width: 40px; height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid var(--cor-destaque);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
-    margin-bottom: 15px;
-    box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+    margin-bottom: 10px;
 }
 
 @keyframes spin {
